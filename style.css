@@ -1,111 +1,144 @@
-body { 
-    background-color: #1a0933;
+:root {
+    --bg-pagina: #0f172a;
+    --bg-header: #1e1b4b;
+    --bg-footer: #1e1b4b;
+    --rosa-brilhante: #ec4899;
+    --rosa-suave: #f472b6;
+    --roxo-destaque: #8b5cf6;
+    --texto-claro: #f8fafc;
+    --texto-secundario: #cbd5e1;
+    --sombra-rosa: 0 10px 25px -5px rgba(236, 72, 153, 0.4);
+}
+
+body {
+    background-color: var(--bg-pagina);
     font-size: 16px;
-    font-family: sans-serif;
-    padding-bottom: 120px;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--texto-claro);
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
 }
 
 .cabecalho {
-    background-color: #4a154b;
-    color: whitesmoke;
-    padding: 20px;
+    background: linear-gradient(135deg, #2e1065 0%, #4c1d95 100%);
+    padding: 30px 20px;
     text-align: center;
-    display: flex;
-    justify-content: center;
+    border-bottom: 2px solid var(--rosa-brilhante);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
 #titulo {
-    font-size: 26px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 15px rgba(236, 72, 153, 0.6);
+    min-height: 38px;
 }
 
 p {
-    margin: 15px 20px;
-    line-height: 1.5;
-    color: #e9d5ff;
+    margin: 25px auto;
+    max-width: 750px;
+    padding: 0 20px;
+    line-height: 1.8;
+    color: var(--texto-secundario);
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+p:hover {
+    color: #ffffff;
 }
 
 .imgcentro {
     display: block;
-    margin: 20px auto;
-    max-width: 300px;
+    margin: 25px auto;
+    max-width: 280px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 20px;
+    box-shadow: var(--sombra-rosa);
+    border: 3px solid var(--rosa-brilhante);
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .menu {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 25px;
+    margin-bottom: 30px;
 }
 
 ul {
-    font-size: 16px;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 li {
     display: inline-block;
-    margin: 10px 15px;
 }
 
-li a {
-    font-size: 30px;
-    color: #c084fc;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-li a:hover {
-    color: #f3e8ff;
-    text-decoration: underline;
-}
-
-button {
-    font-size: 16px;
-    background-color: #6b21a8;
+li a, .btn-voltar {
+    position: relative;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: 700;
     color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    background: linear-gradient(135deg, var(--rosa-brilhante) 0%, var(--roxo-destaque) 100%);
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
 }
 
-button:hover {
-    background-color: #7e22ce;
+li a:hover, .btn-voltar:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(236, 72, 153, 0.6);
+    color: #ffffff;
+}
+
+/* Efeito Ripple (Onda de Clique) */
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    background-color: #2e1065;
-    font-size: 18px;
+    background-color: var(--bg-footer);
+    font-size: 15px;
     width: 100%;
     text-align: center;
-    padding: 10px 0;
+    padding: 25px 0;
+    margin-top: auto;
+    border-top: 1px solid rgba(236, 72, 153, 0.3);
 }
 
 footer p {
-    color: #d8b4fe;
+    color: var(--texto-secundario);
     margin: 0;
+    line-height: 1.6;
 }
 
-.btn-voltar {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #581c87;
-    color: #ffffff;
-    text-decoration: none;
-    border: 2px solid #c084fc;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 15px;
-    transition: all 0.2s ease;
-}
-
-.btn-voltar:hover {
-    background-color: #c084fc;
-    color: #1a0933;
+footer b {
+    color: var(--rosa-suave);
 }
