@@ -106,7 +106,7 @@ li a:hover, .btn-voltar:hover {
     color: #ffffff;
 }
 
-/* Efeito Ripple (Onda de Clique) */
+
 .ripple-effect {
     position: absolute;
     border-radius: 50%;
@@ -141,4 +141,69 @@ footer p {
 
 footer b {
     color: var(--rosa-suave);
+}
+
+@media (max-width: 768px) {
+    .cabecalho {
+        padding: 20px 15px;
+    }
+
+    #titulo {
+        font-size: 24px;
+        letter-spacing: 1px;
+        min-height: auto;
+    }
+
+    p {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        margin: 18px auto;
+        padding: 0 18px;
+    }
+
+    .imgcentro {
+        max-width: 85%;
+        margin: 20px auto;
+    }
+
+    .menu {
+        margin: 20px 15px;
+    }
+
+    ul {
+        gap: 12px;
+    }
+
+    li a, .btn-voltar {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+
+    footer {
+        padding: 20px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    #titulo {
+        font-size: 20px;
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    li {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    li a, .btn-voltar {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
 }
