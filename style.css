@@ -185,25 +185,3 @@ footer b {
     }
 }
 
-@media (max-width: 480px) {
-    #titulo {
-        font-size: 20px;
-    }
-
-    ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    li {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    li a, .btn-voltar {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-        text-align: center;
-    }
-}
